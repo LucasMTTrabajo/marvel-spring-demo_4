@@ -2,11 +2,16 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.9'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id 'maven-publish'
 }
 
-group = 'com.example.marvel_4'
+group = 'com.example.marvel'
 version = '0.0.1'
 sourceCompatibility = '11'
+
+wrapper {
+	gradleVersion = '7.0.2'
+}
 
 configurations {
 	compileOnly {
@@ -14,17 +19,31 @@ configurations {
 	}
 }
 
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			artifactId = 'marvel-spring-demo'
+			from components.java
+		}
+	}
+	repositories {
+		mavenLocal()
+	}
+}
+
+
 repositories {
+	mavenLocal()
 	mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.7.9'
+	compileOnly 'org.projectlombok:lombok:1.18.26'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools:2.7.9'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor:2.7.9'
+	annotationProcessor 'org.projectlombok:lombok:1.18.26'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.9'
 }
 
 tasks.named('test') {
