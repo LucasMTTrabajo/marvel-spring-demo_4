@@ -1,13 +1,11 @@
-package com.example.marvel_4.marvelspringdemo_4;
+package com.example.marvel_4.marvelspringdemo_4
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
 
 @SpringBootApplication
-public class Application {
+class Application
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
-
+fun main(args: Array<String>) {
+    runApplication<Application>(*args)
 }
