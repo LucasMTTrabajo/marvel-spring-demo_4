@@ -3,5 +3,7 @@
     "pack": {
       "java": "11"
     }
-  }
+  },
+  "scriptFile": "gradlew",
+  "gradleWrapper": true
 }
