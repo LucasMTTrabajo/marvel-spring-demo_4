@@ -17,6 +17,7 @@ class PingController {
 
     @PostMapping(value = ["/ping"], consumes = [MediaType.APPLICATION_JSON_VALUE])
     fun pingWithBody(@RequestBody requestBody: BodyPingModel): ResponseEntity<BodyPingModel> {
+        println("Hello World!")
         println(requestBody.id)
         return ResponseEntity.ok(BodyPingModel(null, requestBody.id))
     }
